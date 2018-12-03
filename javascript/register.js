@@ -1,3 +1,6 @@
+var mode = "logIn";
+var attempts = 0;
+var signedUp = false;
 function onClick(){
 var username = document.getElementById("formUsername").value;
 var password = document.getElementById("formPassword").value;
@@ -31,7 +34,7 @@ var checkBox = document.getElementById("checkbox");
         {
             if (checkBox == null || checkBox.checked)
             {
-                location.href = '../index.html';
+                 homepage();
             }
             else
             {
@@ -44,11 +47,19 @@ var checkBox = document.getElementById("checkbox");
     else if (mode == "signUp")
     {
         window.localStorage.setItem(username, password );
-        location.href = '../index.html';
+        homepage();
     }
 }
 
-var mode = "logIn";
-var attempts = 0;
+
+function homepage(){
+        window.localStorage.setItem("signedUp","true");
+        location.href = '../index.html';
+
+}
+
 window.onload = () => {
-};
+window.localStorage.setItem("signedUp","false");
+
+}
+
